@@ -1,0 +1,18 @@
+src_dir: "../dna/store/wxio"
+go_package_prefix: "github.com/wxio/lcmd"
+includes: [ 
+  "../dna/store",
+  "../dna/store/wxio",
+  "../dna/vendor"
+]
+plugin_output_dir: <
+  path: "."
+  generator: <
+    plugin: <
+      go: <
+        paths: Source_Relative
+        plugins: Grpc
+      >
+    >
+  >
+>

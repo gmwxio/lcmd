@@ -6,6 +6,7 @@ import (
 
 	"github.com/jpillora/opts"
 
+	"github.com/wxio/lcmd/internal/grpcsvc"
 	"github.com/wxio/lcmd/internal/roll"
 )
 
@@ -31,6 +32,7 @@ func main() {
 		EmbedGlobalFlagSet().
 		Complete()
 	roll.Register(ro)
+	grpcsvc.Register(ro)
 	rt.opts = ro.Parse()
 	rt.opts.RunFatal()
 }
