@@ -1,0 +1,16 @@
+workspaces:
+- path: go/github.com/wxio/wx
+  url: https://github.com/wxio/wx.git
+  tags: [wx]
+
+- path: go/github.com/wxio/dna
+  url: https://github.com/wxio/dna.git
+  tags: [wx]
+
+- path: go/github.com/wxio/grpcar
+  url: https://github.com/wxio/grpcar.git
+  tags: [wx]
+
+- path: go/github.com/wxio/lcmd
+  url: https://github.com/wxio/lcmd.git
+  tags: [wx, lola]
