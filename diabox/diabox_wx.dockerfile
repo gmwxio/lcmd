@@ -98,9 +98,9 @@ RUN VERSION=0.11.1 \
 	&& rm -rf /root/.cache/bazel/
 
 # Install go from a binary release
-RUN wget -q https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz \
-	&& tar -C /usr/local -xzf go1.13.1.linux-amd64.tar.gz \
-	&& rm go1.13.1.linux-amd64.tar.gz
+RUN wget -q https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz \
+	&& tar -C /usr/local -xzf go1.13.4.linux-amd64.tar.gz \
+	&& rm go1.13.4.linux-amd64.tar.gz
 
 # 
 # 
