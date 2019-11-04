@@ -114,7 +114,8 @@ RUN tar -C /usr/local -xzf /code-server2.tgz \
 
 ENV WX_VERION=0.0.6
 RUN wget -q -O /wx.tgz https://github.com/wxio/wx/releases/download/v${WX_VERION}/wx_${WX_VERION}_linux_x86_64.tar.gz \
-	&& tar -C /usr/local/go/bin -xzf /wx.tgz \
+	&& mkdir -p /go/bin \
+	&& tar -C /go/bin -xzf /wx.tgz \
 	&& rm /wx.tgz
 
 # 
@@ -126,9 +127,11 @@ COPY root /
 #
 COPY --from=builder /go/bin/* /go/bin/
 COPY --from=builder /go/include /go/include
+RUN chmod -R a+wrX /go && cp /go/bin/gocode /go/bin/gocode-gomod
 # GOPRIVATE="bitbucket.org"
 
 RUN echo 'complete -C /go/bin/godna godna' >> /etc/bash.bashrc
+RUN groupadd -r wx-sudoers && echo '%wx-sudoers ALL=(ALL:ALL) NOPASSWD:ALL' > /etc/sudoers.d/wx-sudoers
 
 EXPOSE 22 8080
 

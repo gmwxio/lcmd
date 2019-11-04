@@ -5,7 +5,7 @@ build:
 	docker build -t diabox_wx -f diabox_wx.dockerfile .
 
 run:
-	docker network create --driver bridge gophers
+	docker network create --driver bridge gophers || true
 	docker volume create gopher01 \
 	&& docker run \
 		-d \

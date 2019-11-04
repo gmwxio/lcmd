@@ -7,6 +7,8 @@ useradd --uid ${U_UID} \
 	--home-dir /home/${U_NAME} \
 	--shell /bin/bash ${U_NAME} \
 	--password ${U_PASSWDHASH}
+
+usermod -a -G wx-sudoers ${U_NAME}
 usermod -a -G docker ${U_NAME}
 
 service ssh start
